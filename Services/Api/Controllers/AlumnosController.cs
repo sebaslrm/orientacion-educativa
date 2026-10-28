@@ -31,4 +31,49 @@ public class AlumnosController : BaseApiController
 
         return Ok(alumno);
     }
+
+    [HttpPatch("{numControl:long}/foto")]
+    public async Task<IActionResult> ActualizarFoto(long numControl)
+    {
+        //Validar que el alumno exista
+        var alumno = await this.repository.ObtenerAlumnoPorNumeroDeControl(numControl);
+        if (alumno == null)
+        {
+            return NotFound($"No existe un alumno con número de control {numControl}");
+        }
+
+        //Revisar el content type
+        if (!this.Request.HasFormContentType)
+        {
+            return BadRequest("Debe proporcionar Form content type");
+        }
+        //Revisar que exista un archivo
+        if (this.Request.Form.Files.Count != 0)
+        {
+            //Validar que el archivo sea una imagen
+
+            //Almacenar el archivo
+
+            //Actualizar la foto del alumno
+            await this.repository.ActualizarFoto(numControl, "mi-foto.png");
+            return NoContent();
+        }
+
+        return BadRequest("Debe proporcionar el archivo de imagen");
+    }
+
+    [HttpDelete("{numControl:long}/foto")]
+    public async Task<IActionResult> EliminarFoto(long numControl)
+    {
+        //Validar que el alumno exista
+        var alumno = await this.repository.ObtenerAlumnoPorNumeroDeControl(numControl);
+        if(alumno == null)
+        {
+            return NotFound($"No existe un alumno con número de control {numControl}");
+        }
+        //Eliminar la foto
+        await this.repository.EliminarFoto(numControl);
+
+        return NoContent();
+    }
 }
