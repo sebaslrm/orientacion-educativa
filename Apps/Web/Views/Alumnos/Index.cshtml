@@ -1,0 +1,35 @@
+@section Scripts {
+    <script src="~/js/alumnos.js" asp-append-version="true"></script>
+}
+<h1>Alumnos</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Número de Control</th>
+            <th>Alumno</th>
+            <th>Generación</th>
+            <th>Carrera</th>
+            <th>Grupo</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody data-bind="if: registros().length === 0">
+        <tr>
+            <td colspan="6">No hay registros para mostrar</td>
+        </tr>
+    </tbody>
+    <tbody data-bind="foreach: registros">
+        <tr>
+            <td data-bind="text: NumControl"></td>
+            <td data-bind="text: NombreCompleto"></td>
+            <td data-bind="text: Generacion"></td>
+            <td data-bind="text: Carrera"></td>
+            <td data-bind="text: SemestreGrupo"></td>
+            <td>
+                <a href="#" data-bind="attr: {href: '/alumnos/' + NumControl}">Ver información</a>
+            </td>
+        </tr>
+        
+    </tbody>
+</table>

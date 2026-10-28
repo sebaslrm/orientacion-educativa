@@ -1,0 +1,141 @@
+.credencial {
+    width: 350px;
+    min-height: 490px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px #00000020;
+}
+
+.encabezado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    color: white;
+    background: #123c70;
+}
+
+.escudo {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    border-radius: 50%;
+    background: white;
+}
+
+.institucion {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.subtitulo {
+    margin: 0;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.contenido {
+    padding: 20px;
+}
+
+.datos-principales {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.foto {
+    width: 105px;
+    height: 135px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border: 2px solid #dbeafe;
+    border-radius: 6px;
+}
+
+.nombre {
+    margin: 5px 0 16px;
+    color: #123c70;
+    font-size: 19px;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+.etiqueta {
+    display: block;
+    margin-bottom: 5px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.valor {
+    margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.control {
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.separador {
+    margin: 18px 0;
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+}
+
+.campo {
+    margin-bottom: 16px;
+}
+
+.rejilla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.dato-caja {
+    padding: 12px;
+    border-radius: 6px;
+    background: #eff6ff;
+}
+
+.dato-caja .valor {
+    color: #123c70;
+    font-size: 20px;
+}
+
+.generacion {
+    margin-top: 16px;
+}
+
+.pie {
+    padding: 12px;
+    color: white;
+    background: #123c70;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.acciones {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+button {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 6px;
+    color: white;
+    background: #123c70;
+    cursor: pointer;
+}

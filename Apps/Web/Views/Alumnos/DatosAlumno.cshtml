@@ -1,0 +1,123 @@
+@{
+    string numControl = "";
+    if(ViewData["NumControl"] != null)
+    {
+        numControl = ViewData["NumControl"].ToString();
+    }
+}
+
+@section Header{
+    <link rel="stylesheet" href="~/css/credencial.css" asp-append-version="true" />
+}
+
+@section Scripts{
+    <script src="~/js/datos-alumno.js"></script>
+}
+
+<h1>Información del Alumno</h1>
+<p><a href="~/alumnos">Listado de alumnos</a></p>
+
+<input type="hidden" value="@numControl" id="hidNumControl" />
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <!--Este es el código que me dió ChatGpt-->
+            <article class="credencial">
+
+        <header class="encabezado">
+            <!-- Sustituye por la ruta de tu escudo institucional -->
+            <img class="escudo"
+                 src="~/imagenes/logo-plantel.png"
+                 alt="Escudo institucional">
+
+            <div>
+                <p class="institucion">Centro de Bachillerato Tecnológico Industrial y de Servicios No. 105</p>
+            </div>
+        </header>
+
+        <main class="contenido">
+
+            <section class="datos-principales">
+                <!-- Sustituye por la fotografía del alumno -->
+                <img class="foto"
+                     src="~/imagenes/alumno.jpg"
+                     alt="Fotografía del alumno">
+
+                <div>
+                    <span class="etiqueta">NOMBRE COMPLETO</span>
+                    <h1 class="nombre" data-bind="text: nombre"></h1>
+
+                    <span class="etiqueta">NÚMERO DE CONTROL</span>
+                    <p class="valor control" data-bind="text: numControl"></p>
+                </div>
+            </section>
+
+            <hr class="separador">
+
+            <section class="campo">
+                <span class="etiqueta">CARRERA / ESPECIALIDAD</span>
+                <p class="valor" data-bind="text: carrera"></p>
+            </section>
+
+            <section class="rejilla">
+                <div class="dato-caja">
+                    <span class="etiqueta">SEMESTRE</span>
+                    <p class="valor" data-bind="text: semestre"></p>
+                </div>
+
+                <div class="dato-caja">
+                    <span class="etiqueta">GRUPO</span>
+                    <p class="valor" data-bind="text: grupo"></p>
+                </div>
+            </section>
+
+            <section class="generacion">
+                <span class="etiqueta">GENERACIÓN</span>
+                <p class="valor" data-bind="text: generacion"></p>
+            </section>
+
+        </main>
+
+        <footer class="pie">
+            IDENTIFICACIÓN ESCOLAR
+        </footer>
+
+    </article>
+
+    <div class="acciones">
+        <button>Cambiar fotografía</button>
+    </div>
+            <!--fin chatgpt-->
+        </div>
+        
+        <div class="col-sm-8">
+
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <div class="h5">Pases de Salida</div>
+                    <div>
+                        <button class="btn btn-primary">Nuevo</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Motivo</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4">No hay registros para mostrar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
