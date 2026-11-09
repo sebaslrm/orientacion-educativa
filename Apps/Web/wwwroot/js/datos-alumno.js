@@ -37,7 +37,7 @@ function DatosAlumnoViewModel()
     };
 
     this.cambiarFoto = async () => {
-        if(¡archivo.value){
+        if(!archivo.value){
             return;
         }
         const formData = new FormData();
