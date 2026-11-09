@@ -11,7 +11,7 @@
 }
 
 @section Scripts{
-    <script src="~/js/datos-alumno.js"></script>
+    <script src="~/js/datos-alumno.js" asp-append-version="true"></script>
 }
 
 <h1>Información del Alumno</h1>
@@ -41,8 +41,8 @@
                 <!-- Sustituye por la fotografía del alumno -->
                 <img class="foto"
                      src="~/imagenes/alumno.jpg"
-                     alt="Fotografía del alumno">
-
+                     alt="Fotografía del alumno"
+                     data-bind="attr: { src: fotografia }">
                 <div>
                     <span class="etiqueta">NOMBRE COMPLETO</span>
                     <h1 class="nombre" data-bind="text: nombre"></h1>
@@ -85,9 +85,11 @@
     </article>
 
     <div class="acciones">
-        <button>Cambiar fotografía</button>
+        <button data-bind="click: cambiarFoto">Cambiar fotografía</button>
+        <button type="button" data-bind="click: eliminarFoto">Eliminar fotografía</button>
     </div>
-            <!--fin chatgpt-->
+    <input type="file" id="archivo" />
+
         </div>
         
         <div class="col-sm-8">

@@ -84,7 +84,7 @@ public class AlumnosController : BaseApiController
 
             //Actualizar la foto del alumno
             await this.repository.ActualizarFoto(numControl, nombreArchivo);
-            return NoContent();
+            return Ok(new { foto = $"{FOTOS_ALUMNOS}{nombreArchivo}" });
         }
 
         return BadRequest("Debe proporcionar el archivo de imagen");
