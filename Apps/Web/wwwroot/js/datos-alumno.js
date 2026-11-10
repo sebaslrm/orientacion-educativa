@@ -24,6 +24,8 @@ function DatosAlumnoViewModel()
         obtenerAlumno();
     };
 
+    archivo.addEventListener("change", self.cambiarFoto);
+
     this.eliminarFoto = async () => {
         const url = "http://localhost:5000/alumnos/" + self.numControl() + "/foto";
         const resp = await fetch(url, {
@@ -32,8 +34,12 @@ function DatosAlumnoViewModel()
 
         if(resp.ok){
             self.fotografia("");
-             self.fotografia("/imagenes/alumno.jpg"); 
+            self.fotografia("/imagenes/alumno.jpg"); 
         }
+    };
+    
+    this.abrirSelectorFoto = () => {
+        archivo.click();
     };
 
     this.cambiarFoto = async () => {
@@ -41,17 +47,20 @@ function DatosAlumnoViewModel()
             return;
         }
         const formData = new FormData();
-        data.append("archivo", archivo.files[0]);
+        formData.append("archivo", archivo.files[0]);
         const url = "http://localhost:5000/alumnos/" + self.numControl() + "/foto";
         const resp = await fetch(url, {
             method: "PATCH",
-            body: data 
+            body : formData 
         });
 
         if(resp.ok){
-            self.fotografia("");
-             self.fotografia("/imagenes/alumno.jpg"); 
+            const urlFoto = await resp.text();
+            const separador = urlFoto.includes("?") ? "&" : "?";
+            self.fotografia(urlFoto + separador + "t=" + Date.now());
         }
+
+        archivo.value = "";
     };
 
     const obtenerAlumno = async () => {

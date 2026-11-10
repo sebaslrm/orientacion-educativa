@@ -85,10 +85,11 @@
     </article>
 
     <div class="acciones">
-        <button data-bind="click: cambiarFoto">Cambiar fotografía</button>
+        <button type="button" data-bind="click: abrirSelectorFoto">Cambiar fotografía</button>
         <button type="button" data-bind="click: eliminarFoto">Eliminar fotografía</button>
     </div>
-    <input type="file" id="archivo" />
+    <input type="file" id="archivo" accept="image/*" style="display:none"
+           data-bind="event: { change: cambiarFoto }" />
 
         </div>
         
